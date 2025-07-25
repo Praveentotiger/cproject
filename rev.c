@@ -7,7 +7,7 @@ void rev() {
     scanf("%d", &num);
 
     while (num != 0) {
-        int digit = num % 10;         // Get last digit
+        int digit = num % 10;         // Get last digit to check
         reversed = reversed * 10 + digit; // Add digit to reversed number
         num /= 10;                    // Remove last digit
     }
