@@ -1,37 +1,17 @@
-pipeline{
-    agent any;
-    stages{
-        stage ('build'){
-            parallel {
-                stage ('build1'){
-                    steps{
-                        echo 'Executing parallel stage 1'
-                        sh 'echo "This is parallel stage 1"'
-                    }
-                }
-                stage ('build2'){
-                    steps{
-                        echo 'Executing parallel stage 2'
-                        sh 'echo "This is parallel stage 2"'
-                    }
-                }       
-            } 
-        }                         
-            stages{
-                stage ('test'){
-                    steps{
-                        echo 'Executing parallel stage 1'
-                        sh 'echo "This is parallel stage 1"'
-                    }
-                }
-                stage ('deploy'){
-                    steps{
-                        echo 'Executing parallel stage 2'
-                        sh 'echo "This is parallel stage 2"'
-                    }
-                }       
-            }
-
-        }
-        
+pipeline {
+  agent any
+  stages {
+    stage('build') {
+      parallel {
+        stage('build1') { steps { /*...*/ } }
+        stage('build2') { steps { /*...*/ } }
+      }
     }
+    stage('test') {
+      steps { /* test steps */ }
+    }
+    stage('deploy') {
+      steps { /* deploy steps */ }
+    }
+  }
+}
