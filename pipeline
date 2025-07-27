@@ -15,7 +15,8 @@ pipeline{
                         sh 'echo "This is parallel stage 2"'
                     }
                 }       
-            }                          
+            } 
+        }                         
             stages{
                 stage ('test'){
                     steps{
@@ -32,5 +33,5 @@ pipeline{
             }
 
         }
-        }
+        
     }
