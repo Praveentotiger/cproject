@@ -1,8 +1,8 @@
 pipeline{
     agent any;
     stages{
-        stage ('parallel'){
-            stages{
+        stage ('build'){
+            parallel {
                 stage ('build1'){
                     steps{
                         echo 'Executing parallel stage 1'
@@ -15,9 +15,22 @@ pipeline{
                         sh 'echo "This is parallel stage 2"'
                     }
                 }       
+            }                          
+            stages{
+                stage ('test'){
+                    steps{
+                        echo 'Executing parallel stage 1'
+                        sh 'echo "This is parallel stage 1"'
+                    }
+                }
+                stage ('deploy'){
+                    steps{
+                        echo 'Executing parallel stage 2'
+                        sh 'echo "This is parallel stage 2"'
+                    }
+                }       
             }
 
-            
         }
+        
     }
-}
