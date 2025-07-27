@@ -10,9 +10,9 @@ stage ('build') {
                     stage('build3'){   steps{echo 'build3' }}
                                                   }
                                                   } 
-                                                  }
+                                                  }}
 stage ('test '){ steps { echo 'testing ' } }
 stage ('deploy'){ steps { echo 'deploying ' } }
           }
           }
-}
+
