@@ -1,8 +1,18 @@
 pipeline{
 agent any 
 stages{
-stage ('build') { steps { echo 'building ' } }
+stage ('build') { 
+          stages { 
+          stage ('build branches'){           
+                    parallel{
+                    stage('build1'){   steps{echo 'build1'   }}
+                    stage('build2'){   steps{echo 'build2'   }}
+                    stage('build3'){   steps{echo 'build3' }}
+                                                  }
+                                                  } 
+                                                  }
 stage ('test '){ steps { echo 'testing ' } }
 stage ('deploy'){ steps { echo 'deploying ' } }
-}
           }
+          }
+}
